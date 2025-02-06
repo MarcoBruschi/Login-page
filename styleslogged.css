@@ -32,7 +32,7 @@ body {
     border-radius: 100px;
     color: #9AA6B2;
     font-family: 'Poppins', sans-serif;
-    font-size: 2vw;
+    font-size: 5vw;
     font-weight: bold;
     transition: transform 1s, background-color 1s, color 1s;
     cursor: pointer;
@@ -44,3 +44,14 @@ body {
     color: #4C585B;
 }
 
+@media only screen and (max-width: 768px) { 
+
+    .container-btn {
+        width: 100%;
+    }
+
+    .container img {
+       width: 70vw;
+    }
+
+}
