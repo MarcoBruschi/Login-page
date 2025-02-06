@@ -10,7 +10,7 @@ function log() {
     } else {
         inputUser = '';
         inputPassword = '';
-        alert(`This user don't exist`);
+        alert(`This user doesn't exist`);
     }
 }
 
