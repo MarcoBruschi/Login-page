@@ -40,8 +40,8 @@ body {
 
 .container-btn:hover {
     transform: scale(1.2);
-    background-color: #A5BFCC;
-    color: #4C585B;
+    background-color: red;
+    color: black;
 }
 
 @media only screen and (max-width: 768px) { 

@@ -9,21 +9,25 @@
 <body>
     <div class="main-login">
         <div class="left-login">
-            <h1>Login and be part of <strong>our team!</strong></h1>
+            <h1>Sign up and be part of <strong>our team!</strong></h1>
             <img src="img/login-animate.svg" alt="" class="left-login-image">
         </div>
         <div class="right-login">
             <div class="card-login">
                 <h1>Login</h1>
                 <div class="text-field">
-                    <label for="user">User</label>
-                    <input type="text" name="user" id="user" placeholder="User">
+                    <label for="user">Email</label>
+                    <input type="text" name="user" id="user" placeholder="Email" onkeyup="checkValid()">
+                    <p id="no-email-error" class="no-email-error-message">Please, enter an email.</p>
+                    <p id="invalid-email-error" class="invalid-email-error-message">Invalid Email</p>
                 </div>
                 <div class="text-field">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password" onkeyup="checkValid()">
+                    <p id="invalid-password-error" class="invalid-password-error-message">Please, enter a password.</p>
                 </div>
                 <button class="btn-login" onclick="log()">Login</button>
+                <button class="btn-login" onclick="log()">Sign up</button>
             </div>
         </div>
     </div>
