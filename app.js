@@ -1,55 +1,63 @@
-let inputUser = document.getElementById('user');
-let inputPassword = document.getElementById('password');
+const emailField = document.getElementById('input-email');
+const passwordField = document.getElementById('input-password');
+const noEmail = document.getElementById('message-no-email');
+const invalidEmail = document.getElementById('message-invalid-email');
+const noPassword = document.getElementById('message-password');
+const loginButton = document.getElementById('signin-button');
+const registerButton = document.getElementById('signup-button');
+const errorSignin = document.getElementById('message-signin');
 
-
-
-function log() {
-    let inputUser = document.getElementById('user');
-    let inputPassword = document.getElementById('password');
-    let errorpassword = document.getElementById("invalid-password-error");
-    let erroremail = document.getElementById("no-email-error");
-
-    
-
-    if (validateEmail(inputUser.value) && inputPassword.value != "") {
-        window.location.href = "logged.html";
-    } else {
-        errorpassword.style.display = "inline";
-        erroremail.style.display = "inline";
-    }
-}
-
-function checkValid() {
-    let errormessage = document.getElementById("invalid-email-error");
-    let inputUser = document.getElementById('user');
-    let errorpassword = document.getElementById("invalid-password-error");
-    let erroremail = document.getElementById("no-email-error");
-
-    if (inputUser.value != "") {
-        erroremail.style.display = "none";
-        if (validateEmail(inputUser.value)) {
-            errormessage.style.display = "none";
+function checkEmail() {
+    if (emailField.value != "") {
+        noEmail.style.display = "none";
+        if (validateEmail(emailField.value)) {
+            invalidEmail.style.display = "none";
         } else {
-            errormessage.style.display = "inline";
+            invalidEmail.style.display = "block";
         }
     } else {
-        errormessage.style.display = "none";
+        noEmail.style.display = "block";
+        invalidEmail.style.display = "none";
     }
+}
 
-    if (inputPassword.value != "") {
-        errorpassword.style.display = "none";
+function checkPassword() {
+    if (passwordField.value != "") {
+        noPassword.style.display = "none";
+    } else {
+        noPassword.style.display = "block";
+    }
+}
+
+function signin() {
+    if (localStorage.getItem('email') == emailField.value && localStorage.getItem('password') == passwordField.value) {
+        window.location.href = "logged.html";
+        localStorage.clear();
+        errorSignin.style.display = "none";
+    } else {
+        errorSignin.style.display = "block";
+    }
+}
+
+function signup() {
+    if (validateEmail(emailField.value) && passwordField.value != "") {
+        localStorage.setItem('email', emailField.value);
+        localStorage.setItem('password', passwordField.value);
+        noEmail.style.display = "block";
+        noPassword.style.display = "block";
+    } else {
+        noEmail.style.display = "block";
+        noPassword.style.display = "block";
+        localStorage.clear();
     }
 }
 
 
+emailField.addEventListener('keyup', checkEmail);
+passwordField.addEventListener('keyup', checkPassword);
+loginButton.addEventListener('click', signin);
+registerButton.addEventListener('click', signup);
 
-
-
-
-
-function back() {
-    window.location.href = "index.html";
-}
 
 
 function validateEmail(email) {
