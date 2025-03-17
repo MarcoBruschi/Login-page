@@ -30,6 +30,7 @@ function checkPassword() {
 }
 
 function signin() {
+    checkPassword();
     if (localStorage.getItem('email') == emailField.value && localStorage.getItem('password') == passwordField.value) {
         window.location.href = "logged.html";
         localStorage.clear();
@@ -47,6 +48,7 @@ function signup() {
         localStorage.setItem('password', passwordField.value);
         noEmail.style.display = "none";
         noPassword.style.display = "none";
+        errorSignin.style.display = "none";
     } else {
         noEmail.style.display = "block";
         noPassword.style.display = "block";
