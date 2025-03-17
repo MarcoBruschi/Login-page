@@ -34,6 +34,8 @@ function signin() {
         window.location.href = "logged.html";
         localStorage.clear();
         errorSignin.style.display = "none";
+        emailField.value = "";
+        passwordField.value = "";
     } else {
         errorSignin.style.display = "block";
     }
@@ -43,8 +45,8 @@ function signup() {
     if (validateEmail(emailField.value) && passwordField.value != "") {
         localStorage.setItem('email', emailField.value);
         localStorage.setItem('password', passwordField.value);
-        noEmail.style.display = "block";
-        noPassword.style.display = "block";
+        noEmail.style.display = "none";
+        noPassword.style.display = "none";
     } else {
         noEmail.style.display = "block";
         noPassword.style.display = "block";
